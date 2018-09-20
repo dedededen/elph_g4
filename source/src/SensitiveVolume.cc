@@ -1,0 +1,71 @@
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// SensitiveVolume.cc
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+#include "SensitiveVolume.hh"
+#include "G4TouchableHistory.hh"
+#include "G4Track.hh"
+#include "G4Step.hh"
+#include "G4ParticleDefinition.hh"
+#include "G4HCofThisEvent.hh"
+#include "G4RunManager.hh"
+#include "Analysis.hh"
+#include "G4SystemOfUnits.hh"
+
+//------------------------------------------------------------------------------
+SensitiveVolume::SensitiveVolume(G4String name)
+  : G4VSensitiveDetector(name)
+    //------------------------------------------------------------------------------
+{}
+
+//------------------------------------------------------------------------------
+SensitiveVolume::~SensitiveVolume()
+//------------------------------------------------------------------------------
+{}
+
+//------------------------------------------------------------------------------
+void SensitiveVolume::Initialize(G4HCofThisEvent*)
+//------------------------------------------------------------------------------
+{}
+//------------------------------------------------------------------------------
+void SensitiveVolume::EndOfEvent(G4HCofThisEvent*)
+//------------------------------------------------------------------------------
+{}
+
+//------------------------------------------------------------------------------
+G4bool SensitiveVolume::ProcessHits(G4Step* aStep, G4TouchableHistory*)
+//------------------------------------------------------------------------------
+{
+  G4StepPoint* point = aStep->GetPreStepPoint();
+  if(point->GetStepStatus() == fGeomBoundary){
+
+    G4double x,y,z,Ene;
+    const G4String particle_name = aStep->GetTrack()->GetDefinition()->GetParticleName();;
+    G4ThreeVector worldPos = point ->GetPosition();
+    x = worldPos.getX();
+    y = worldPos.getY();
+    z = worldPos.getZ();
+
+    Ene = point -> GetTotalEnergy();
+      
+    /*G4cout << x << G4endl
+           << y << G4endl
+           << z << G4endl
+           << Ene << G4endl
+           << particle_name << G4endl;*/
+    
+    G4AnalysisManager* analysisManager = G4AnalysisManager::Instance();
+    analysisManager->FillNtupleDColumn(0, x);
+    analysisManager->FillNtupleDColumn(1, y);
+    analysisManager->FillNtupleDColumn(2, z);
+    analysisManager->FillNtupleDColumn(3, Ene);
+    analysisManager->FillNtupleSColumn(4, particle_name);
+    analysisManager->AddNtupleRow();
+  }
+  return true;
+}
+
+
+
+
+
+
