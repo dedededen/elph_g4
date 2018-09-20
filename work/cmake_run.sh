@@ -4,8 +4,9 @@ read ANSWER
 
 case $ANSWER in
      "Y" | "y" | "yes" | "Yes" | "YES" ) 
-        rm -rf ../build/*
+        rm -rf ../build
         rm -rf ../bin/Application*
+        mkdir ../build
         cd ../build
         cmake ../source/
         make
