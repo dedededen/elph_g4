@@ -10,7 +10,7 @@ ppcc2018のGeant4課題をもとに作成しました。
 物体の後方のsensitive detector（空気）で粒子の位置とエネルギー、種類を記録します。  
 
 ### セットアップ
-|source e+|-----(10mm-width/2)----|material|--(10.0mm)--|detector|
+|source e+|-----(10mm-width/2)----|material|--(10.0mm)--|detector|  
 detector 280mm * 280 mm * 1mm(air)
 width is material's
 
@@ -28,8 +28,6 @@ width is material's
 /work で sh cmake_run.sh を実行するだけ。（今のところは）
 
 ## 変更予定
-- main関数の引数として、materialの厚みを自由に変更できるようにする
-    - 出力ファイル名など何か所変更する必要がある。
 - shスクリプトで厚みを変えながら、シミュレーションを実行
 - SUSでのradiation length を求め、結果が計算とconsistentか確認
     - 解析コードをつくる
