@@ -17,10 +17,10 @@ esac
 echo "Do you wanna run?  [Y/n]"
 read ANSWER
 
-echo "How the width of a material is?"
-read width
 case $ANSWER in
-      "Y" | "y" | "yes" | "Yes" | "YES" ) 
+    "Y" | "y" | "yes" | "Yes" | "YES" ) 
+        echo "How the width of a material is?"
+        read width
         cd ../work
         ../bin/Application_Main $width
         mv ./data/test.root ./data/wid_$width.root;;
