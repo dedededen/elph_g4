@@ -80,12 +80,12 @@ G4VPhysicalVolume* Geometry::Construct()
   new G4PVPlacement(trans3D_LogV, "PhysVol_emt", logVol_emt, physVol_World,false, copyNum_LogV);
 
   // Define Detector
-  G4double leng_X_de = 280*mm;
-  G4double leng_Y_de = 280*mm;   
+  G4double leng_X_de = 100*mm;
+  G4double leng_Y_de = 100*mm;   
   G4double leng_Z_de = 1*mm;
   G4double pos_X_de = 0*mm;
   G4double pos_Y_de = 0*mm;   
-  G4double pos_Z_de = width/2.0 + 10.5*mm;
+  G4double pos_Z_de = width/2.0 + leng_Z_de/2.0 + 30.0*mm;
   G4Box* solid_de = new G4Box("Detector",leng_X_de/2.0,leng_Y_de/2.0,leng_Z_de/2.0); 
   G4Material* materi_de = materi_Man->FindOrBuildMaterial("G4_AIR");
   G4LogicalVolume* logVol_de = 
