@@ -24,7 +24,6 @@ RunAction::RunAction()
   analysisManager->CreateNtupleDColumn("pos_y");
   analysisManager->CreateNtupleDColumn("pos_z");
   analysisManager->CreateNtupleDColumn("energy");
-  analysisManager->CreateNtupleSColumn("par_name");
   analysisManager->CreateNtupleIColumn("par_id");
 
   analysisManager->FinishNtuple();

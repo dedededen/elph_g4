@@ -73,8 +73,8 @@ G4bool SensitiveVolume::ProcessHits(G4Step* aStep, G4TouchableHistory*)
     analysisManager->FillNtupleDColumn(1, y);
     analysisManager->FillNtupleDColumn(2, z);
     analysisManager->FillNtupleDColumn(3, Ene);
-    analysisManager->FillNtupleSColumn(4, particle_name);
-    analysisManager->FillNtupleIColumn(5, particle_id);
+    //    analysisManager->FillNtupleSColumn(4, particle_name);
+    analysisManager->FillNtupleIColumn(4, particle_id);
     analysisManager->AddNtupleRow();
   }
   return true;

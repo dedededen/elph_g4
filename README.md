@@ -26,7 +26,14 @@ width is material's
         - analysis ; 解析スクリプトを置いてくつもり  
 ## 使い方
 /work で sh cmake_run.sh を実行するだけ。（今のところは）
-
+loop~.shで厚みを変えるループをまわす
+/work/dataにデータが生成される
+par_idにおけるは以下の内容になっている
+　1; e+
+  2; e+
+  3; e-
+  4; gamma
+  5; else(neutron)
 ## 変更予定
 - shスクリプトで厚みを変えながら、シミュレーションを実行
 - SUSでのradiation length を求め、結果が計算とconsistentか確認
