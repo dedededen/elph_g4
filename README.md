@@ -10,7 +10,7 @@ ppcc2018のGeant4課題をもとに作成しました。
 物体の後方のsensitive detector（空気）で粒子の位置とエネルギー、種類を記録します。  
 
 ### セットアップ
-|source e+|-----(10mm-width/2)----|material|--(10.0mm)--|detector|  
+|source e+|-----(10mm-width/2)----|material|--(30.0mm)--|detector|  
 detector 280mm * 280 mm * 1mm(air)
 width is material's
 
